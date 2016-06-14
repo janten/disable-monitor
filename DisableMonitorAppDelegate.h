@@ -17,8 +17,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <Sparkle/Sparkle.h>
 #import "DisplayData.h"
+
 @interface DisableMonitorAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, NSWindowDelegate> {
     IBOutlet NSMenu *statusMenu;
     NSStatusItem *statusItem;
@@ -36,15 +36,8 @@
 @property (assign) IBOutlet NSOutlineView *pref_lstEnableMonitors;
 @property (assign) IBOutlet NSButton *pref_chkDisableMonitor;
 @property (assign) IBOutlet NSOutlineView *pref_lstDisableMonitors;
-@property (assign) IBOutlet NSPanel *about_window;
-@property (assign) IBOutlet NSButton *about_btnUpdate;
-@property (assign) IBOutlet NSButton *about_btnWeb;
-@property (assign) IBOutlet NSTextField *about_lblAppName;
-@property (assign) IBOutlet NSTextField *about_lblVersion;
 
 @property (assign) CGDirectDisplayID window_display;
-@property (assign) IBOutlet SUUpdater *updater;
-
 
 +(void)toggleMonitor:(CGDirectDisplayID) displayID enabled:(Boolean) enabled;
 +(bool)isDisplayEnabled:(CGDirectDisplayID)displayID;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,13 +15,6 @@
         <menu id="533"/>
         <customObject id="494" customClass="DisableMonitorAppDelegate">
             <connections>
-                <outlet property="about_btnUpdate" destination="MTW-NH-2Pw" id="QYt-N7-9vM"/>
-                <outlet property="about_btnWeb" destination="fxB-RB-TIE" id="eoi-BJ-nfo"/>
-                <outlet property="about_homepage" destination="fxB-RB-TIE" id="aPK-hy-wPq"/>
-                <outlet property="about_lblAppName" destination="TGz-JT-Kfb" id="xdd-ks-eEZ"/>
-                <outlet property="about_lblVersion" destination="HoO-E2-I6b" id="fWj-TZ-gZG"/>
-                <outlet property="about_window" destination="i7j-si-zbO" id="yyJ-lq-Zcs"/>
-                <outlet property="about_window_btnupdate" destination="MTW-NH-2Pw" id="4gx-w4-Fvv"/>
                 <outlet property="pref_btnClose" destination="67K-Sz-8O1" id="y0L-UQ-584"/>
                 <outlet property="pref_chkDisableMonitor" destination="9Ka-7i-dJ3" id="s4S-1X-SDP"/>
                 <outlet property="pref_chkEnableMonitor" destination="7kz-Gu-eJy" id="LR8-p9-39O"/>
@@ -194,7 +187,7 @@
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="jdE-3D-bze">
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LRZ-Gc-QZH">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="LRZ-Gc-QZH">
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="M7j-z6-Wa3">
@@ -259,7 +252,7 @@
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="aHQ-3J-2Sw">
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="N3B-dt-IYT">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="N3B-dt-IYT">
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="IBr-Vw-jse">
@@ -299,66 +292,5 @@
             <point key="canvasLocation" x="518" y="48"/>
         </window>
         <customObject id="qSi-Sj-bZh" customClass="SUUpdater"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="i7j-si-zbO" customClass="NSPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="211" y="124" width="333" height="162"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1058"/>
-            <view key="contentView" id="KtW-mz-iVD">
-                <rect key="frame" x="0.0" y="-5" width="333" height="162"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nFo-a8-yNt">
-                        <rect key="frame" x="20" y="20" width="122" height="122"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="rRF-Am-iIT"/>
-                    </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HoO-E2-I6b">
-                        <rect key="frame" x="148" y="94" width="167" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="x3N-sE-MYU">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TGz-JT-Kfb">
-                        <rect key="frame" x="148" y="118" width="167" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="xjP-sQ-a2B">
-                            <font key="font" metaFont="system" size="20"/>
-                            <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button verticalHuggingPriority="750" id="MTW-NH-2Pw">
-                        <rect key="frame" x="237" y="13" width="82" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mqz-Ig-iA1">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="checkForUpdates:" target="494" id="SwO-K6-i19"/>
-                        </connections>
-                    </button>
-                    <button id="fxB-RB-TIE">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="12"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" title="https://github.com/Eun/DisableMonitor" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="cjh-xc-VFo">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="miniSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="openHomePage:" target="494" id="Pbb-sr-QSn"/>
-                        </connections>
-                    </button>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="289.5" y="382"/>
-        </window>
     </objects>
-    <resources>
-        <image name="icon" width="512" height="512"/>
-    </resources>
 </document>

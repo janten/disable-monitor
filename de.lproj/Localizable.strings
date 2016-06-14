@@ -5,8 +5,8 @@
 "MENU_SCREENSAVER" = "Bildschirmschoner starten";
 "MENU_NO_MONITOS" = "Keine Monitore gefunden";
 "MENU_MANAGE" = "Verwalten";
-"MENU_ABOUT" = "Über";
-"MENU_QUIT" = "Beenden";
+"MENU_ABOUT" = "Über DisableMonitor";
+"MENU_QUIT" = "DisableMonitor beenden";
 "CHECK_FOR_UPDATES" = "Auf Updates überprüfen";
 "ALERT_OK" = "OK";
 "ALERT_CANCEL" = "Abbrechen";

@@ -20,5 +20,4 @@
 
 @interface NSImage (NegativeImage)
 - (NSImage *)negativeImage;
-+ (NSImage *)imageResize:(NSImage*)anImage newSize:(NSSize)newSize;
 @end

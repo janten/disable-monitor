@@ -12,21 +12,20 @@
 		591A9C2F19B8457A00848073 /* DisplayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 591A9C2E19B8457A00848073 /* DisplayData.m */; };
 		592CED7E18FEB66E00FDDF65 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592CED7D18FEB66E00FDDF65 /* IOKit.framework */; };
 		592CED8118FEBDB300FDDF65 /* GLFW.m in Sources */ = {isa = PBXBuildFile; fileRef = 592CED8018FEBDB300FDDF65 /* GLFW.m */; };
-		593E314119D445C6000B07DE /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593E314019D445C6000B07DE /* Sparkle.framework */; };
-		593E314319D445F5000B07DE /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 593E314019D445C6000B07DE /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59426C101A4333E800001E55 /* MonitorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59426C0F1A4333E800001E55 /* MonitorDataSource.m */; };
 		59426C131A433E1900001E55 /* DisplayIDAndNameCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 59426C121A433E1900001E55 /* DisplayIDAndNameCondition.m */; };
 		594D69681988D0F500D48AD7 /* OnlyIntegerValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 594D69671988D0F500D48AD7 /* OnlyIntegerValueFormatter.m */; };
 		5960567319D2E00E00B4525E /* DisplayIDAndName.m in Sources */ = {isa = PBXBuildFile; fileRef = 5960567219D2E00E00B4525E /* DisplayIDAndName.m */; };
 		598E9892193DC99B005DEB10 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598E9891193DC99B005DEB10 /* MainMenu.xib */; };
 		5997614F19864C25008D8C44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5997614E19864C25008D8C44 /* Security.framework */; };
-		59B5766718FFDC6700B57E77 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 59B5766618FFDC6700B57E77 /* icon.icns */; };
 		59B8717A1979605C0021932B /* ResolutionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B871791979605C0021932B /* ResolutionDataSource.m */; };
 		59B8717D197960D40021932B /* ResolutionDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B8717C197960D40021932B /* ResolutionDataItem.m */; };
 		59B87183197986BF0021932B /* ResOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B87182197986BF0021932B /* ResOutlineView.m */; };
 		8D11072B0486CEB800E47090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* Localizable.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		EEC7238F1D10B33400C99F2E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC7238E1D10B33400C99F2E /* Images.xcassets */; };
+		EEC723911D10B3AC00C99F2E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = EEC723901D10B3AC00C99F2E /* icon.icns */; };
 		F674D7CA1A4726D600DCEDAE /* NSImage+NegativeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F674D7C91A4726D600DCEDAE /* NSImage+NegativeImage.m */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				593E314319D445F5000B07DE /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +305,6 @@
 		591AEFF5197924CA00277858 /* DisplayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayData.h; sourceTree = "<group>"; };
 		592CED7D18FEB66E00FDDF65 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		592CED8018FEBDB300FDDF65 /* GLFW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFW.m; sourceTree = "<group>"; };
-		593E314019D445C6000B07DE /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		59426C0E1A4333E800001E55 /* MonitorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorDataSource.h; sourceTree = "<group>"; };
 		59426C0F1A4333E800001E55 /* MonitorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitorDataSource.m; sourceTree = "<group>"; };
 		59426C111A433E1900001E55 /* DisplayIDAndNameCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayIDAndNameCondition.h; sourceTree = "<group>"; };
@@ -319,7 +316,6 @@
 		598E9891193DC99B005DEB10 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		5997614E19864C25008D8C44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		5997615019865637008D8C44 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
-		59B5766618FFDC6700B57E77 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		59B871781979605C0021932B /* ResolutionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolutionDataSource.h; sourceTree = "<group>"; };
 		59B871791979605C0021932B /* ResolutionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolutionDataSource.m; sourceTree = "<group>"; };
 		59B8717B197960D40021932B /* ResolutionDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolutionDataItem.h; sourceTree = "<group>"; };
@@ -330,6 +326,8 @@
 		59F8F440199DDC14000D066B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* DisableMonitor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DisableMonitor-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DisableMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisableMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC7238E1D10B33400C99F2E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DisableMonitor/Images.xcassets; sourceTree = "<group>"; };
+		EEC723901D10B3AC00C99F2E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		F674D7C81A4726D600DCEDAE /* NSImage+NegativeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+NegativeImage.h"; sourceTree = "<group>"; };
 		F674D7C91A4726D600DCEDAE /* NSImage+NegativeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+NegativeImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -341,7 +339,6 @@
 			files = (
 				591A9C2D19B83E3F00848073 /* DisplayServices.framework in Frameworks */,
 				5997614F19864C25008D8C44 /* Security.framework in Frameworks */,
-				593E314119D445C6000B07DE /* Sparkle.framework in Frameworks */,
 				592CED7E18FEB66E00FDDF65 /* IOKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 			);
@@ -408,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				598E9891193DC99B005DEB10 /* MainMenu.xib */,
-				59B5766618FFDC6700B57E77 /* icon.icns */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -430,6 +426,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EEC723901D10B3AC00C99F2E /* icon.icns */,
+				EEC7238E1D10B33400C99F2E /* Images.xcassets */,
 				8D1107310486CEB800E47090 /* DisableMonitor-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* Localizable.strings */,
 			);
@@ -439,7 +437,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				593E314019D445C6000B07DE /* Sparkle.framework */,
 				591A9B2E19B83E2800848073 /* Library */,
 				591A9B2C19B83E0700848073 /* DesktopServicesPriv.framework */,
 				5997615019865637008D8C44 /* Carbon.framework */,
@@ -777,7 +774,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DisableMonitor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -801,8 +798,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC723911D10B3AC00C99F2E /* icon.icns in Resources */,
 				8D11072B0486CEB800E47090 /* Localizable.strings in Resources */,
-				59B5766718FFDC6700B57E77 /* icon.icns in Resources */,
+				EEC7238F1D10B33400C99F2E /* Images.xcassets in Resources */,
 				598E9892193DC99B005DEB10 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -866,8 +865,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "DisableMonitor-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rtmsug.disable-monitor";
 				PRODUCT_NAME = DisableMonitor;
-				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -875,6 +874,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -890,8 +890,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "DisableMonitor-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rtmsug.disable-monitor";
 				PRODUCT_NAME = DisableMonitor;
-				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -899,13 +899,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -917,7 +917,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};

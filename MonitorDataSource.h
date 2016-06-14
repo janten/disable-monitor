@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "DisplayData.h"
 
 @interface MonitorDataSource : NSObject  <NSOutlineViewDataSource>
 {

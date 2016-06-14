@@ -40,58 +40,22 @@
 @synthesize pref_lstDisableMonitors;
 @synthesize pref_lstEnableMonitors;
 @synthesize pref_tabView;
-@synthesize about_window;
-@synthesize about_btnUpdate;
-@synthesize about_btnWeb;
-@synthesize about_lblAppName;
-@synthesize about_lblVersion;
 
 @synthesize window_display;
-@synthesize updater;
-
-#define UPDATE_INTERVAL 60*60*24*7
-
 
 CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	
-    
-}
-
 
 -(void)awakeFromNib{
     statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [statusMenu setDelegate:self];
     [statusItem setMenu:statusMenu];
-    NSImage *statusImage = [NSImage imageResize:[[NSImage imageNamed:@"icon.icns"] copy] newSize:NSMakeSize(20, 20)];
-    
-    
-    if ([self isInDarkMode])
-    {
-        NSImage *normalImage = statusImage;
-        statusImage = [normalImage negativeImage];
-        [normalImage release];
-    }
-    
-    
-    [self setupAboutWindow];
+    [statusItem setLength:24.0];
+    NSImage *statusBarImage = [[NSApp applicationIconImage] copy];
+    [statusBarImage setSize:NSMakeSize(20.0, 20.0)];
+    statusItem.image = statusBarImage;
     [self setupPreferencesWindow];
-    
-    [statusItem setImage:statusImage];
     [statusItem setHighlightMode:YES];
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(darkModeChanged:) name:@"AppleInterfaceThemeChangedNotification" object:nil];
     CGDisplayRegisterReconfigurationCallback(displayReconfigurationCallBack, NULL);
-    
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    unsigned long now = [[NSDate date] timeIntervalSince1970];
-    unsigned long nextCheck = [userDefaults integerForKey:@"lastUpdateCheck"] + UPDATE_INTERVAL;
-    if (nextCheck < now)
-    {
-        [updater checkForUpdatesInBackground];
-        [userDefaults setInteger:now forKey:@"lastUpdateCheck"];
-        [userDefaults synchronize];
-    }
 }
 
 
@@ -101,18 +65,6 @@ CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:NSGlobalDomain];
     id style = [dict objectForKey:@"AppleInterfaceStyle"];
     return ( style && [style isKindOfClass:[NSString class]] && NSOrderedSame == [style caseInsensitiveCompare:@"dark"] );
-}
-
--(void)darkModeChanged:(NSNotification *)notif
-{
-    NSImage *statusImage = [NSImage imageResize:[[NSImage imageNamed:@"icon.icns"] copy] newSize:NSMakeSize(20, 20)];
-    if ([self isInDarkMode])
-    {
-        NSImage *normalImage = statusImage;
-        statusImage = [normalImage negativeImage];
-        [normalImage release];
-    }
-    [statusItem setImage:statusImage];
 }
 
 +(void)ShowError:(NSString*)error
@@ -458,23 +410,12 @@ CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
 }
 
 /**
- *  user clicked on start screensaver
- *
- *  @param sender menuItem
- */
--(void)startScreenSaverClicked:(id) sender
-{
-    [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"];
-}
-
-/**
  *  user clicked on quit
  *
  *  @param sender menuItem
  */
--(void)quitClicked:(id) sender
-{
-    [NSApp terminate: nil];
+-(void)quitClicked:(id) sender {
+    [NSApp terminate:nil];
 }
 
 
@@ -581,9 +522,7 @@ CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
                 [data setDisplay:displayId];
                 [subItem setRepresentedObject: data];
                 [subMenu insertItem:subItem atIndex:0];
-            }
-            else
-            {
+            } else {
                 subItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"MENU_ENABLE",NULL) action:@selector(monitorClicked:)  keyEquivalent:@""];
                 DisplayData *data = [[DisplayData alloc] init];
                 [data setDisplay:displayId];
@@ -591,46 +530,23 @@ CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
                 [subMenu insertItem:subItem atIndex:0];
             }
             
+            [subMenu insertItem:[[NSMenuItem separatorItem] copy] atIndex:[[subMenu itemArray] count]];
             
-            
-                [subMenu insertItem:[[NSMenuItem separatorItem] copy] atIndex:[[subMenu itemArray] count]];
-                
-                subItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"MENU_MANAGE",NULL)  action:@selector(manageClicked:)  keyEquivalent:@""];
-                DisplayData *data = [[DisplayData alloc] init];
-                [data setDisplay:displayId];
-                [subItem setRepresentedObject: data];
-                [subItem setOffStateImage:[NSImage imageNamed: NSImageNameSmartBadgeTemplate]];
-                [subMenu insertItem:subItem atIndex:[[subMenu itemArray] count]];
+            subItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"MENU_MANAGE",NULL)  action:@selector(manageClicked:)  keyEquivalent:@""];
+            DisplayData *data = [[DisplayData alloc] init];
+            [data setDisplay:displayId];
+            [subItem setRepresentedObject: data];
+            [subMenu insertItem:subItem atIndex:[[subMenu itemArray] count]];
             
             [displayItem setSubmenu:subMenu];
             [statusMenu addItem:displayItem];
             [idAndName release];
-            
-
-            //subItem = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%u", displayId] action:nil  keyEquivalent:@""];
-            //[subMenu insertItem:subItem atIndex:0];
-
         }
+
         [dict release];
     }
     
-    
-    
-    [statusMenu addItem:[[NSMenuItem separatorItem] copy]];
-    
-
-    
-    menuItemLock = [[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"MENU_TURNOFF",NULL) action:@selector(turnOffMonitorsClicked:) keyEquivalent:@""];
-    [menuItemLock setOffStateImage:[NSImage imageNamed: NSImageNameLockLockedTemplate]];
-    [statusMenu addItem:menuItemLock];
-    
-    menuItemScreenSaver = [[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"MENU_SCREENSAVER",NULL) action:@selector(startScreenSaverClicked:) keyEquivalent:@""];
-    [menuItemScreenSaver setOffStateImage:[NSImage imageNamed: NSImageNameLockLockedTemplate]];
-    //[menuItemScreenSaver setHidden:YES];
-    [statusMenu addItem:menuItemScreenSaver];
-    
     NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"MENU_DETECT",NULL) action:@selector(detectMonitorsClicked:) keyEquivalent:@""];
-    [menuItem setOffStateImage:[NSImage imageNamed: NSImageNameRefreshTemplate]];
     [statusMenu addItem:menuItem];
     
     [statusMenu addItem:[[NSMenuItem separatorItem] copy]];
@@ -639,32 +555,10 @@ CFStringRef const kDisplayBrightness = CFSTR(kIODisplayBrightnessKey);
     [statusMenu addItem:menuItem];
     
     menuItemQuit = [[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"MENU_QUIT",NULL) action:@selector(quitClicked:) keyEquivalent:@""];
-    //[menuItemQuit setHidden:YES];
     [statusMenu addItem:menuItemQuit];
-
-    /*NSTimer *t = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(updateMenu:) userInfo:statusMenu repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:t forMode:NSEventTrackingRunLoopMode];
-     */
 }
 
 #pragma mark Menu Helpers
-
-/**
- *  triggers every 100ms to detect if the user has pressed the opt key.
- *  If so enable the alternative menu items
- *  @param timer timer
- */
-- (void)updateMenu:(NSTimer *)timer {
-    
-    CGEventRef event = CGEventCreate (NULL);
-    CGEventFlags flags = CGEventGetFlags (event);
-    BOOL optionKeyIsPressed = (flags & kCGEventFlagMaskAlternate) == kCGEventFlagMaskAlternate;
-    CFRelease(event);
-    
-    [menuItemLock setHidden:optionKeyIsPressed];
-    [menuItemScreenSaver setHidden:!optionKeyIsPressed];
-    [menuItemQuit setHidden:!optionKeyIsPressed];
-}
 
 /**
  *  relase the current menu structure to build a new one.
@@ -838,60 +732,11 @@ void displayReconfigurationCallBack(CGDirectDisplayID display, CGDisplayChangeSu
 
 #pragma mark About Window
 /**
- *  setup the about window
- */
--(void)setupAboutWindow
-{
-    [about_window setTitle: NSLocalizedString(@"MENU_ABOUT", NULL)];
-    [about_window setLevel:NSFloatingWindowLevel];
-    [about_window setDelegate:self];
-    [about_btnUpdate setTitle:NSLocalizedString(@"CHECK_FOR_UPDATES", NULL)];
-    [about_btnUpdate sizeToFit];
-    [about_btnUpdate setFrameOrigin: NSMakePoint(
-                                                 
-                                                 [about_window frame].size.width -
-                                                 [about_btnUpdate frame].size.width
-                                                 - 13
-                                                 , [about_btnUpdate frame].origin.y)];
-    
-    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-    [about_lblVersion setStringValue:[infoDict objectForKey:@"CFBundleVersion"]];
-    [about_lblAppName setStringValue:[infoDict objectForKey:@"CFBundleExecutable"]];
-}
-
-/**
  *  show the about window
  */
--(void)showAboutWindow
-{
-    [pref_window close];
-    ProcessSerialNumber psn = { 0, kCurrentProcess };
-    TransformProcessType(&psn, kProcessTransformToForegroundApplication);
-    [about_window makeKeyAndOrderFront:self];
-    [about_window makeFirstResponder: nil];
+-(void)showAboutWindow{
+    [NSApp orderFrontStandardAboutPanel:self];
 }
-
-/**
- *  open the project home page
- *
- *  @param sender sender object
- */
--(IBAction)openHomePage:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/Eun/DisableMonitor"]];
-}
-
-/**
- *  button action that checkes for updates
- *
- *  @param sender sender object
- */
--(IBAction)checkForUpdates:(id)sender
-{
-    [updater checkForUpdates:sender];
-}
-
-
 
 #pragma mark Preferences Window
 /**
@@ -933,7 +778,6 @@ void displayReconfigurationCallBack(CGDirectDisplayID display, CGDisplayChangeSu
  */
 -(void)showPreferencesWindow:(CGDirectDisplayID)displayID name:(NSString*)name
 {
-    [about_window close];
     window_display = displayID;
     [pref_window setTitle: name];
     // Load Settings
